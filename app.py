@@ -171,8 +171,16 @@ with st.sidebar.expander(T(lang, "sec1_title"), expanded=True):
     default_hh_size_level = st.selectbox(T(lang, "hhsize_basis_label"),
                                           ["PC4 level", "City level", "Country level"],
                                           key=f"hhsize_level_{nonce}", format_func=level_fmt)
+    hh_size_area_default = default_for("hh_size", default_hh_size_level)
+    avg_household_size_input = st.number_input(
+        T(lang, "hhsize_label"), min_value=0.1, value=round(hh_size_area_default, 3), step=0.05,
+        key=f"hhsize_val_{nonce}")
     pct_buy = st.number_input(T(lang, "pct_buy_label"), min_value=0.0, max_value=1.0,
                                value=float(default_buy), step=0.05, key=f"buy_{nonce}")
+    avg_cars_per_hh_default = default_for("cars_per_hh", "PC4 level")
+    avg_cars_per_household = st.number_input(T(lang, "cars_per_hh_label"),
+                                               min_value=0.0, value=round(avg_cars_per_hh_default, 3), step=0.05,
+                                               key=f"carshh_{nonce}")
 
 # The remaining sections have a data dependency that runs opposite to the
 # order we want them displayed in: "City-level parking policy" (a power-user
@@ -266,13 +274,12 @@ with slot_unit_mix, st.expander(T(lang, "sec2_title"), expanded=False):
         cat.share = float(share) if pd.notna(share) else 0.0
 
     computed_hh_size = weighted_household_size(categories, ref.country)
-    pc4_hh_size = default_for("hh_size", default_hh_size_level)
     hh_size_source = st.radio(T(lang, "hhsize_source_label"),
                                ["Use area default", "Compute from unit mix above"],
                                key=f"hhsize_src_{nonce}",
                                format_func=lambda v: T(lang, "opt_area_default" if v == "Use area default"
                                                         else "opt_compute_mix"))
-    avg_household_size = pc4_hh_size if hh_size_source == "Use area default" else computed_hh_size
+    avg_household_size = avg_household_size_input if hh_size_source == "Use area default" else computed_hh_size
     st.caption(T(lang, "hhsize_selected_caption", val=avg_household_size))
 
     single_hh_share = share_single_person_households(categories, ref.country)
@@ -280,10 +287,6 @@ with slot_unit_mix, st.expander(T(lang, "sec2_title"), expanded=False):
     st.caption(T(lang, "single_social_caption", single=single_hh_share, social=social_share))
 
 with slot_parking_char, st.expander(T(lang, "sec3_title"), expanded=False):
-    avg_cars_per_hh_default = default_for("cars_per_hh", "PC4 level")
-    avg_cars_per_household = st.number_input(T(lang, "cars_per_hh_label"),
-                                               min_value=0.0, value=round(avg_cars_per_hh_default, 3), step=0.05,
-                                               key=f"carshh_{nonce}")
     share_public_default = default_for("perc_public_parking", "PC4 level")
     share_public_parking = st.number_input(T(lang, "share_public_label"), min_value=0.0, max_value=1.0,
                                              value=round(share_public_default, 3), step=0.05, key=f"pubpark_{nonce}")
@@ -313,6 +316,9 @@ with slot_sociodemo, st.expander(T(lang, "sec4_title"), expanded=False):
                                        value=round(addr_density_default, 1), step=10.0, key=f"addrdens_{nonce}")
     pt_default = has_pt_in_1km(pc4_info, "PC4 level", pc4, city)
     has_pt = st.checkbox(T(lang, "has_pt_label"), value=pt_default, key=f"haspt_{nonce}")
+    st.caption(T(lang, "single_hh_caption", val=single_hh_share))
+    share_single_hh = st.number_input(T(lang, "single_hh_label"), min_value=0.0, max_value=1.0,
+                                       value=round(single_hh_share, 3), step=0.01, key=f"singlehh_{nonce}")
 
 with st.sidebar.expander(T(lang, "sec6_title"), expanded=False):
     st.markdown(brand.advanced_header(T(lang, "advanced_inputs_title"), T(lang, "sec6_caption")),
@@ -389,6 +395,7 @@ inputs = ProjectInputs(
     private_parking_spots_per_house=private_parking_spots_per_house_val,
     share_visitor_parking=share_visitor_parking, pct_25_45=pct_25_45, pct_high_income=pct_high_income,
     address_density=address_density, has_pt_in_1km=has_pt, categories=categories,
+    share_single_hh=share_single_hh,
 )
 results = run_model(ref, inputs)
 
