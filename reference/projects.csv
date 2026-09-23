@@ -1,0 +1,26 @@
+Name,PC4,num_houses,cars_per_hh,perc_buy,perc_social_rent,perc_free_low,perc_free_mid,perc_paid_public_parking,private_spots_per_house,visitor_spots,public_spots,parking_regime,expected_residents
+Amersfoort - Langs Eem en Spoor: Isselt,3812,5500,,0.5,0.3,0.2,0.5,1,0.327272727272727,0,0,,
+Amersfoort - Langs Eem en Spoor: Wagenwerkplaats,3812,650,,0.5,0.3,0.2,0.5,1,0.33,0,0,strict - mobility hubs,urban
+Amersfoort - Hoefkwartier,3821,4000,,0.5,0.35,0.2,0.45,1,0.33,0,0,strict - car free,mix young /old/1st time buyers +families
+Amersfoort - Bovenduist,3826,3150,,0.5,0.0761904761904762,0.0146031746031746,0.909206349206349,1,0.33,0,0,strict - car free,1st time buyers/ small families/ urgent need people
+Utrecht - Merwedekanaalzone,3526,6000,,0.55,0.4,0.15,0.45,1,0.33,0,0,very strict- 1800 parking spots,"12000 1st time buyers/ young families, seniors, urban"
+Utrecht - Cartesiusdriehoek,3534,3000,,0.5,0.112333333333333,0.0306666666666667,0.857,1,0.33,0,0,strict,"1st time buyers, families, high incomes/ mix of all"
+Utrecht - Rijenburg,3546,25000,,0.5,0.4,0.15,0.45,1,0.33,0,0,,"2nd time buyers, families, high incomes/ mix of all"
+Utrecht - Lunetten Koningsweg,3524,450,,0.5,0.4,0.15,0.45,1,0.33,0,0,,1st time buyers/ small families/ urgent need people
+Lelystad - Zuiderhage,8245,12500,,0.5,0.3,0.4,0.3,1,0.33,0,0,,25000
+Lelystad - Stadshart en stationsgebied,8232,2685,,0.35,0.3,0.4,0.3,1,0.33,0,0,paid parking,
+Lelystad - Waterfront,8242,2700,,0.35,0.3,0.4,0.3,1,0.33,0,0,paid parking,
+Lelystad - Campusgebied midden,8233,770,,0.35,0.32,0.3,0.38,1,0.33,0,0,non,
+Lelystad - De Akker,8241,600,,0,0.3,0.4,0.3,1,0.33,0,0,,
+Groningen - De Suikerzijde,9743,5500,,0.74,0.22,0.38,0.4,1,0.33,0,0,,
+Groningen - Stadshavens,9713,3300,,0.75,0.15,0.1,0.75,1,0.33,0,0,strict – no on-street parking,"1st time buyers, families, high incomes/ mix of all"
+Groningen - De Eems,9613,3000,,0.75,0.3,0.4,0.3,1,0.33,0,0,strict – no on-street parking,"1st time buyers, families, singels, mid incomes/ mix of all"
+Groningen - De Nieuwe held,9745,1850,,0.6,0.3,0.2,0.5,1,0.33,0,0,"Under study: partly on private property (inhabitants), partly in public space (visitors)","1st time buyers, families, singels, mid incomes/ mix of all"
+Rotterdam - Nieuw Kralingen,3062,8000,0.75,0.25,0.1,0.15,0.75,1,0.33,0,0,"on street, 1 permit per household","mostly families high income, seniors"
+Rotterdam - Rijnhaven,3072,2500,0.5,0.5,0.2,0.3,0.5,1,0.33,0,0,"Hardly no onstreet parking, parking hubs","singel households, expats, young couples - very urban "
+Rotterdam - Merwedevierhavens M4H,3029,3750,0.5,0.5,0.2,0.3,0.5,1,0.33,0,0,Hardly no on street parking - parking hubs ,"1st time buyers, families, young professionals, pioneers"
+Rotterdam - Alexanderknoop,3067,9000,0.4,0.6,0.2,0.3,0.5,1,0.33,0,0,strict - parking hubs,"1st time buyers, young couples, singe households, expats, seniors"
+Rotterdam - Waterkant (Feyenoord city),3077,7125,0.5,0.5,0.2,0.3,0.5,1,0.33,0,0,strict - parking hubs,"active cityfamily, 1st time buyers, seniors"
+NOVEX locations,n/a,358800,0.5,0.5,0.2,0.3,0.5,1,0.33,0,0,strict - parking hubs,urban and greenfield extensions
+Existing built-up locations,n/a,370100,0.5,0.5,0.2,0.3,0.5,1,0.33,0,0,strict - parking hubs,urban districts with multiple socio-economic and societal challenges
+Greenfield development locations,n/a,264300,0.5,0.5,0.2,0.3,0.5,1,0.33,0,0,strict - parking hubs,"large-scale and regular extensions – completion or expansion of former VINEX locations, growth centres and new towns"

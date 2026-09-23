@@ -1,0 +1,242 @@
+{
+  "country_assumptions": {
+    "share_18plus_with_license": 0.6,
+    "avg_parking_space_size_m2": 15,
+    "bus_fuel_electric": 0.26,
+    "bus_fuel_cng": 0.09,
+    "bus_fuel_diesel": 0.65,
+    "share_train_travel": 0.132785914761032,
+    "avg_passengers_per_bus": 16.0767030340079,
+    "median_hh_size_nl": 2.3,
+    "hh_size_social_medium_rent": 2.3,
+    "hh_size_free_up_to_30m2": 1.0,
+    "hh_size_free_30_to_60m2": 1.5,
+    "hh_size_free_above_60m2": 2.3,
+    "diesel_train_emission_per_km": {
+      "CO": 0.0,
+      "VOC": 0.0,
+      "NOx": 0.0,
+      "PM10": 0.022,
+      "NH3": 0.0,
+      "N2O": 0.0,
+      "EC": 0.0,
+      "CO2": 67.6
+    },
+    "eu_ets_co2_price_eur_per_tonne": 78.13,
+    "tree_co2_absorption_kg_per_year": 21.77,
+    "benchmark_postcodes": [
+      2516,
+      3534,
+      5616
+    ],
+    "avg_yearly_travel_distance_km": 5871.6,
+    "avg_yearly_travel_hours": 138.24,
+    "construction_cost_per_parking_spot_eur": 30000.0
+  },
+  "emission_factors_g_per_km": {
+    "note": "As coded in the source workbook's Model_calc_new_dev_emission sheet, which pulls 'Petrol cars' from the PBL_emission factors row labelled 'Diesel' (row 523) and 'Diesel cars' from the row labelled 'Petrol' (row 529). This looks like a label swap upstream in the source file; we replicate the references exactly as built rather than silently correcting them. Flag for the model owner to confirm.",
+    "petrol": {
+      "CO": 0.40675899502879,
+      "VOC": 0.0389278129599477,
+      "NOx": 0.140843191088095,
+      "PM10": 0.00110276778731249,
+      "NH3": 0.0019255809183522,
+      "N2O": 0.0261481091231802,
+      "EC": 0.000982469939894935,
+      "CO2": 225.80058130262
+    },
+    "diesel": {
+      "CO": 16.2509214820287,
+      "VOC": 2.75989895404059,
+      "NOx": 1.59891377310211,
+      "PM10": 0.027466425320542,
+      "NH3": 0.00962416398972816,
+      "N2O": 0.00216716295931972,
+      "EC": 0.00548793863936529,
+      "CO2": 242.192815096053
+    },
+    "hybrid": {
+      "CO": 0.111304000004515,
+      "VOC": 0.141000000057115,
+      "NOx": 0.186105999992991,
+      "PM10": 0.00221800005877856,
+      "NH3": 0.0260610062274598,
+      "N2O": 0.0157999896213781,
+      "EC": 0.000450000046369536,
+      "CO2": 146.511948216738
+    },
+    "electric": {
+      "CO": 0.0,
+      "VOC": 0.0,
+      "NOx": 0.0,
+      "PM10": 0.0,
+      "NH3": 0.0,
+      "N2O": 0.0,
+      "EC": 0.0,
+      "CO2": 0.0
+    },
+    "bus_per_pkm": {
+      "CO": 0.774490342178084,
+      "VOC": 0.245019774402081,
+      "NOx": 1.20984701664465,
+      "PM10": 0.0185452182239278,
+      "NH3": 0.00254834976893998,
+      "N2O": 0.0260911160305408,
+      "EC": 0.00882042255035864,
+      "CO2": 897.703082989847
+    }
+  },
+  "regression_active_users": {
+    "note": "Beta-regression (mean model, logit link) predicting the active-user share among carsharing-relevant residents. Coefficients and phi as calibrated in Model_metrics_new_dev_act_users.",
+    "phi": 773.261888256159,
+    "confidence_level": 0.95,
+    "error_multiplier": 1.0,
+    "terms": {
+      "Intercept": {
+        "coef": -4.34502912971226,
+        "se": 0.0717138038118258
+      },
+      "perc_dwellings_owned": {
+        "coef": -0.349255931869683,
+        "se": 0.0518821776956727
+      },
+      "rental_public_housing_ratio": {
+        "coef": 0.262995784872429,
+        "se": 0.0446046823602175
+      },
+      "perc_high_inc_hh": {
+        "coef": 0.0167214151165342,
+        "se": 0.000539712896715905
+      },
+      "cars_per_parking_spots": {
+        "coef": 0.342944491590309,
+        "se": 0.0257921729854988
+      },
+      "perc_public_parking": {
+        "coef": -0.847259853150562,
+        "se": 0.0331924527574291
+      },
+      "perc_paid_public_parking": {
+        "coef": 0.114986238421176,
+        "se": 0.0198812857932446
+      },
+      "perc_pop_25to45yr": {
+        "coef": 1.88064312746406,
+        "se": 0.0695673525886194
+      },
+      "perc_private_hh_1p": {
+        "coef": 0.461208288866733,
+        "se": 0.0605477198386055
+      },
+      "Has_PT_in_1km": {
+        "coef": 0.0459986776326887,
+        "se": 0.0120474186946227
+      },
+      "rec_avg_cars_per_hh": {
+        "coef": 0.120435483073263,
+        "se": 0.0108399855627987
+      },
+      "address_density": {
+        "coef": 0.000156781023732373,
+        "se": 4.19437290032936e-06
+      }
+    }
+  },
+  "city_parking_policy_default": {
+    "share_visitor_parking_pct_of_private": 0.2,
+    "categories": [
+      {
+        "label": "< 40 m2",
+        "social_housing": false,
+        "lower": 0,
+        "upper": 40,
+        "A": 0.1,
+        "B": 0.1,
+        "C": 0.1
+      },
+      {
+        "label": "40 to 65 m2",
+        "social_housing": false,
+        "lower": 40,
+        "upper": 65,
+        "A": 0.4,
+        "B": 0.5,
+        "C": 0.6
+      },
+      {
+        "label": "65 to 85 m2",
+        "social_housing": false,
+        "lower": 65,
+        "upper": 85,
+        "A": 0.6,
+        "B": 0.8,
+        "C": 1.0
+      },
+      {
+        "label": "85 to 120 m2",
+        "social_housing": false,
+        "lower": 85,
+        "upper": 120,
+        "A": 1.0,
+        "B": 1.0,
+        "C": 1.4
+      },
+      {
+        "label": "> 120 m2",
+        "social_housing": false,
+        "lower": 120,
+        "upper": null,
+        "A": 1.2,
+        "B": 1.2,
+        "C": 1.8
+      },
+      {
+        "label": "Social housing",
+        "social_housing": true,
+        "lower": null,
+        "upper": null,
+        "A": 0.6,
+        "B": 0.6,
+        "C": 0.6
+      },
+      {
+        "label": "Category 7 (not in use)",
+        "social_housing": false,
+        "lower": null,
+        "upper": null,
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      {
+        "label": "Category 8 (not in use)",
+        "social_housing": false,
+        "lower": null,
+        "upper": null,
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      {
+        "label": "Category 9 (not in use)",
+        "social_housing": false,
+        "lower": null,
+        "upper": null,
+        "A": null,
+        "B": null,
+        "C": null
+      }
+    ]
+  },
+  "default_house_mix_shares": [
+    0.2,
+    0.25,
+    0.35,
+    0.0,
+    0.0,
+    0.2,
+    0.0,
+    0.0,
+    0.0
+  ]
+}
