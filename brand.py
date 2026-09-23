@@ -43,11 +43,21 @@ header[data-testid="stHeader"] {{
     box-shadow: none !important;
 }}
 #MainMenu {{ visibility: hidden; }}
-div[data-testid="stToolbar"] {{ visibility: hidden; }}
+div[data-testid="stMainMenu"] {{ display: none; }}
 div[data-testid="stDeployButton"] {{ display: none; }}
+div[data-testid="stAppDeployButton"] {{ display: none; }}
 div[data-testid="stStatusWidget"] {{ display: none; }}
 footer {{ visibility: hidden; }}
 div[data-testid="stDecoration"] {{ display: none; }}
+/* keep the "expand sidebar" arrow visible & easy to spot once the sidebar is
+   collapsed -- it lives in the same toolbar as the chrome we hide above */
+div[data-testid="stExpandSidebarButton"] {{
+    visibility: visible !important;
+    background: {WHITE};
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(21,43,78,0.18);
+}}
+div[data-testid="stExpandSidebarButton"] svg {{ color: {CORAL} !important; }}
 .block-container {{ padding-top: 1.1rem; }}
 
 /* ---- headline serif everywhere Streamlit renders h1-h3 ---- */
