@@ -359,6 +359,13 @@ class ProjectInputs:
     address_density: float
     has_pt_in_1km: bool
     categories: list[Category]
+    share_single_hh: float | None = None
+    # ^ Share of single-person households feeding the active-user regression
+    # (source Excel row "4.4. Share of single households"). Same source-Excel
+    # quirk as the unit-mix category table: the Excel lets you type over the
+    # unit-mix-computed default with your own project-level estimate. Leave
+    # as None to use the value computed from the unit mix (categories), same
+    # as before this field existed.
 
 
 @dataclass
@@ -432,7 +439,8 @@ def run_model(ref: ReferenceData, inp: ProjectInputs) -> Results:
         perc_public_parking=inp.share_public_parking,
         perc_paid_public_parking=(0.0 if inp.share_public_parking == 0 else inp.share_paid_public_parking),
         perc_pop_25to45yr=inp.pct_25_45,
-        perc_private_hh_1p=share_single_person_households(inp.categories, country),
+        perc_private_hh_1p=(inp.share_single_hh if inp.share_single_hh is not None
+                             else share_single_person_households(inp.categories, country)),
         has_pt_in_1km=inp.has_pt_in_1km,
         rec_avg_cars_per_hh=(inp.num_houses / num_cars) if num_cars else 0.0,
         address_density=inp.address_density,

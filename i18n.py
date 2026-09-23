@@ -53,6 +53,8 @@ TEXTS = {
     "sec1_title": {"en": "1 · Development characteristics", "nl": "1 · Kenmerken van het project"},
     "num_houses_label": {"en": "Number of houses", "nl": "Aantal woningen"},
     "hhsize_basis_label": {"en": "Household size — basis", "nl": "Huishoudgrootte — basis"},
+    "hhsize_label": {"en": "Average household size (area default, editable)",
+                      "nl": "Gemiddelde huishoudgrootte (gebiedsstandaard, aanpasbaar)"},
     "pct_buy_label": {"en": "Share of homes for owner-occupation (% buy)",
                        "nl": "Aandeel koopwoningen (%)"},
 
@@ -120,6 +122,14 @@ TEXTS = {
     "pct_hi_label": {"en": "High-income households (%)", "nl": "Huishoudens met hoog inkomen (%)"},
     "addr_density_label": {"en": "Address density (addresses/km²)", "nl": "Adresdichtheid (adressen/km²)"},
     "has_pt_label": {"en": "Public transport stop within 1 km", "nl": "OV-halte binnen 1 km"},
+    "single_hh_caption": {"en": "Computed from the unit mix above: **{val:.0%}** of homes are "
+                                 "single-person households. This feeds the carsharing-potential "
+                                 "model below — override it if you have a better project-level estimate.",
+                           "nl": "Berekend uit de woningmix hierboven: **{val:.0%}** van de woningen "
+                                 "is een eenpersoonshuishouden. Dit voedt het deelauto-potentieelmodel "
+                                 "hieronder — pas het aan als je een betere projectinschatting hebt."},
+    "single_hh_label": {"en": "Share of single-person households (editable)",
+                         "nl": "Aandeel eenpersoonshuishoudens (aanpasbaar)"},
 
     # ---- section 6: country-level assumptions ----
     "sec6_title": {"en": "6 · Country-level assumptions (power users)",
